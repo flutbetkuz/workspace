@@ -22,10 +22,10 @@ workspace/
 
 ### Paradox Therapy Bot
 - **Репозиторий:** https://github.com/flutbetkuz/paradox-therapy-bot
-- **Локация:** d:\2026\paradox_therapy_bot
+- **VPS:** запущен в production (Docker)
 - **Описание:** Telegram-бот для рефлексии без давления и геймификации
-- **Технологии:** Python, aiogram, SQLite
-- **Статус:** MVP реализован
+- **Технологии:** Python, aiogram, SQLite, APScheduler, Docker, OpenRouter API
+- **Статус:** MVP в production, Telegram Payments не подключены
 
 ## Правила работы
 
@@ -84,7 +84,14 @@ workspace/
    - Проверка на уязвимости (XSS, SQL injection, command injection и др.)
    - Проверка на утечку конфиденциальных данных
 
-## Git workflow
-- Meaningful commit messages
-- Не коммитить конфиденциальную информацию
+### Деплой (VPS + Docker)
+
+- ✅ При изменении `.py` файлов — пересобирать образ: `docker compose up --build -d`
+- ⛔ `docker compose restart` НЕ подхватывает изменения кода (образ не обновляется)
+- ✅ `.env` подхватывается без rebuild — можно менять токены/модели без пересборки
+- ✅ Только `./data` монтируется как volume — остальное бакается в образ
+
+### Git workflow
+- Meaningful commit messages на английском
+- Не коммитить конфиденциальную информацию (.env, токены)
 - Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
