@@ -15,3 +15,37 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Sensitive & credentials
+.ssh/
+.env
+*.env
+*.pem
+*.key
+docker.gpg
+
+# VS Code Server
+.vscode-server/
+
+# Claude internals
+.claude/
+.claire/
+.claude.json
+
+# Shell & OS config
+.bashrc
+.profile
+.bash_history
+.bash_logout
+.cache/
+.dotnet/
+.wget-hsts
+.gitconfig
+.os_postinstall_complete
+os_postinstall.log
+
+# Cline extension data
+Cline/
+
+# Node
+node_modules/
